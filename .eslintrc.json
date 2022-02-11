@@ -7,6 +7,17 @@
   },
 
   "rules": {
+    /*
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": ["test/**"],
+        "optionalDependencies": false,
+        "peerDependencies": false
+      }
+    ],
+    */
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
     "strict": 0,
         "no-underscore-dangle": ["error", { "allowAfterThis": true }],
         "no-unused-expressions": ["error", { "allowShortCircuit": true, "allowTernary": true }],

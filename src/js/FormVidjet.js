@@ -54,34 +54,24 @@ export default class Widget {
 
   bindToDOM() {
     this.parentEl.innerHTML = this.constructor.markup;
-    /*
-    const submit = this.parentEl.querySelector(this.constructor.submitSelector);
-    */
-    // const conteiner = this.parentEl.querySelector(this.constructor.widjetSelector);
     const button = this.parentEl.querySelector(this.constructor.buttonSelector);
     button.addEventListener('click', (e) => this.onClick(e));
   }
 
   onClick(e) {
     e.preventDefault();
-    /*
-    if (!tool.classList.contains("tooltip_active")) {
-        toolActive.call(this);
-      }
-      else if(tool.innerHTML !== this.getAttribute("title")) {
-        tool.classList.remove("tooltip_active");
-        toolActive.call(this);
-      }
-      else{
-        tool.classList.remove("tooltip_active");
-      }
-    */
-    // const form = this.parentEl.querySelector(this.constructor.formSelector);
-    // const inputEl = this.parentEl.querySelector(this.constructor.inputSelector);
+    if (e.target.parentElement.children.length === 1) {
+      this.createPopover();
+    } else {
+      e.target.parentElement.children[1].remove();
+    }
+  }
+
+  createPopover() {
     const first = this.parentEl.querySelector(this.constructor.buttonSelector);// = button
     const popover = document.createElement('div');
     popover.className = 'popover fade show bs-popover-top';// 'div-propover';
-    popover.textContent = 'Большой текст сообщения об ошибке';
+    // popover.textContent = 'Большой текст сообщения об ошибке';
 
     const popoverBody = document.createElement('div');
     popoverBody.className = 'popover-body';
@@ -104,7 +94,6 @@ export default class Widget {
     arrow.style.left = 'calc(50% - 10px)';
     arrow.style.top = `${popover.offsetHeight - 3}px`;
     arrow.classList.add('top');
-
-    // console.log('ершы кнопка', this.button);
+    // console.log('кнопка', this.button);
   }
 }

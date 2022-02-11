@@ -35,25 +35,22 @@ describe('Credit Card Validator form', () => {
     server.kill();
   });
 
-  test('Должен добавить класс valid если номер валидный', async () => {
+  test('Должен открыть подсказку - создать новый элемент', async () => {
     await page.goto(baseUrl);
 
-    const form = await page.$('[data-widget=form-widget]');
-    const input = await form.$('[data-id=form-input]');
-    await input.type('379791071524836');
-    const submit = await form.$('[data-id=form-submit]');
-    submit.click();
-    await page.waitForSelector('[data-id=form-input].valid');
+    const button = await page.$('.btn .btn-secondary');
+    // const button = await buttonEl.$('.btn btn-secondary');
+    button.click();
+    await page.waitForFunction(() => document.body.firstElementChild.children[0].length === 2);
   });
 
-  test('Должен добавить класс invalid если номер не валидный', async () => {
+  test('Должен закрыть подсказку - удалить новый элемент', async () => {
     await page.goto(baseUrl);
 
-    const form = await page.$('[data-widget=form-widget]');
-    const input = await form.$('[data-id=form-input]');
-    await input.type('44561261212345464');
-    const submit = await form.$('[data-id=form-submit]');
-    submit.click();
-    await page.waitForSelector('[data-id=form-input].invalid');
+    const button = await page.$('.btn .btn-secondary');
+    // const button = await buttonEl.$('.btn btn-secondary');
+    button.click();
+    button.click();
+    await page.waitForFunction(() => document.body.firstElementChild.children[0].length === 1);
   });
 });

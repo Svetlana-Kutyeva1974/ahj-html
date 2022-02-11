@@ -84,25 +84,6 @@ button, input {
   border-color: #dc3545;
 }
 
-.btn-danger.focus, .btn-danger:focus {
-  box-shadow: 0 0 0 0.2rem rgb(225 83 97 / 50%);
-}
-/*------------
-*/
-.bs-popover-auto[x-placement^=top]>.arrow::after, .bs-popover-top>.arrow::after {
-  bottom: 1px;
-  border-width: .5rem .5rem 0;
-  border-top-color: #fff;
-}
-
-.popover .arrow::after, .popover .arrow::before {
-  position: absolute;
-
-  display: block;
-  content: "";
-  border-color: transparent;
-  border-style: solid;
-}
 
 .popover {
   position: absolute;
@@ -140,8 +121,14 @@ button, input {
 
 element.style {
   left: 124px;
+  top: 100px;
 }
+/*
 .bs-popover-auto[x-placement^=top]>.arrow, .bs-popover-top>.arrow {
+  bottom: calc((0.5rem+ 1px) * -1);
+}
+*/
+.bs-popover-top>.arrow {
   bottom: calc((0.5rem+ 1px) * -1);
 }
 
@@ -152,24 +139,53 @@ element.style {
   height: 0.5rem;
   margin: 0 0.3rem;
 }
+/*
 .bs-popover-auto[x-placement^=top]>.arrow::before, .bs-popover-top>.arrow::before {
   bottom: 0;
   border-width: 0.5rem 0.5rem 0;
   border-top-color: rgba(0,0,0,.25);
+}
+*/
+.bs-popover-top>.arrow::before {
+  bottom: -1.5px;
+  border-width: 0.5rem 0.5rem 0;
+  /*border-top-color: rgba(0,0,0,.25);*/
+}
+/*
+.bs-popover-auto[x-placement^=top]>.arrow::after, .bs-popover-top>.arrow::after {
+  bottom: 1px;
+  border-width: .5rem .5rem 0;
+  border-top-color: rgb(121, 111, 111);
+}
+*/
+.bs-popover-top>.arrow::after {
+  bottom: -1.5px;
+  border-width: .5rem .5rem 0;
+  
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-top-color: rgb(121, 111, 111);
 }
 
 .popover .arrow::after, .popover .arrow::before {
   position: absolute;
   display: block;
   content: "";
-  border-color: transparent;
+  /*border-color: transparent;*/
+  /*border-color: #dc3545;*/
   border-style: solid;
+  opacity: 0.08;
 }
 
+
+/*
 .bs-popover-auto[x-placement^=top], .bs-popover-top {
   margin-bottom: .5rem;
 }
-
+*/
+.bs-popover-top {
+  margin-bottom: .5rem;
+}
 
 .arrow {
   position: absolute;
@@ -180,44 +196,23 @@ element.style {
 .arrow::before {
   content: "";
   position: absolute; 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-top-color: white;
 }
 
 .arrow::after {
   content: "";
   position: absolute; 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-top-color: white;
 }
 
-/*
-.flex{
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-}
-
-.card {
-  display: flex;
-  flex-direction: row;
-  height: 50px;
-}
-
-.style-img {
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-}
-
-button {
-  margin: 0 !important;
-}
-
-.card {
-  width: 500px;
-  height: 50px;
-}
-
-.header {
-  margin-bottom: 10px;
-}
 
 /*
 .tasks__control {
