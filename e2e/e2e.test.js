@@ -38,19 +38,21 @@ describe('Credit Card Validator form', () => {
   test('Должен открыть подсказку - создать новый элемент', async () => {
     await page.goto(baseUrl);
 
-    const button = await page.$('.btn .btn-secondary');
-    // const button = await buttonEl.$('.btn btn-secondary');
+    // const button = await page.$('[data-id=button-widjet]');через дата-ай-ди
+    const button = await page.$('button.btn.btn-secondary');// обычный
     button.click();
-    await page.waitForFunction(() => document.body.firstElementChild.children[0].length === 2);
+    // await page.waitForFunction(() => document.body.firstElementChild.children[0].length === 2);
+    await page.waitForFunction(() => document.body.querySelector('[data-id=button-widjet]').nextElementSibling !== null);
   });
 
   test('Должен закрыть подсказку - удалить новый элемент', async () => {
     await page.goto(baseUrl);
 
-    const button = await page.$('.btn .btn-secondary');
+    const button = await page.$('[data-id=button-widjet]');
     // const button = await buttonEl.$('.btn btn-secondary');
     button.click();
     button.click();
-    await page.waitForFunction(() => document.body.firstElementChild.children[0].length === 1);
+    // await page.waitForFunction(() => document.body.firstElementChild.children[0].length === 1);
+    await page.waitForFunction(() => document.body.querySelector('[data-id=button-widjet]').nextElementSibling === null);
   });
 });
