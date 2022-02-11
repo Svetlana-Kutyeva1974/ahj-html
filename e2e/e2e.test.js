@@ -51,6 +51,7 @@ describe('Credit Card Validator form', () => {
     const button = await page.$('[data-id=button-widjet]');
     // const button = await buttonEl.$('.btn btn-secondary');
     button.click();
+    await page.waitForFunction(() => document.body.querySelector('[data-id=button-widjet]').nextElementSibling !== null);
     button.click();
     // await page.waitForFunction(() => document.body.firstElementChild.children[0].length === 1);
     await page.waitForFunction(() => document.body.querySelector('[data-id=button-widjet]').nextElementSibling === null);
