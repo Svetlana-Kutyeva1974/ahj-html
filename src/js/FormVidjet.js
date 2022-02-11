@@ -27,18 +27,6 @@ export default class Widget {
     </button>
     `;
   }
-  /*
-    <div class="popover fade show bs-popover-top" role="tooltip" id="popover99555"
-     x-placement="top"
-    style="position: absolute; will-change: transform; top: 0px; left: 0px;
-    transform: translate3d(273px, 2187px, 0px);">
-      <div class="arrow" style="left: 124px;">
-      </div>
-      <h3 class="popover-header"></h3>
-      <div class="popover-body">Vivamus sagittis lacus vel augue laoreet rutrum faucibus.</div>
-    </div>
-   </div>
-    */
 
   static get inputSelector() {
     return '[data-id=form-input]';
@@ -97,3 +85,19 @@ export default class Widget {
     // console.log('кнопка', this.button);
   }
 }
+//
+//
+//
+
+/*
+    <div class="popover fade show bs-popover-top" role="tooltip" id="popover99555"
+     x-placement="top"
+    style="position: absolute; will-change: transform; top: 0px; left: 0px;
+    transform: translate3d(273px, 2187px, 0px);">
+      <div class="arrow" style="left: 124px;">
+      </div>
+      <h3 class="popover-header"></h3>
+      <div class="popover-body">Vivamus sagittis lacus vel augue laoreet rutrum faucibus.</div>
+    </div>
+   </div>
+    */
